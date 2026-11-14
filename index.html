@@ -583,25 +583,7 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 }
 
 
-.qa-log summary {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: center;
-}
-.qa-log summary time {
-  margin: 0;
-  font-variant-numeric: tabular-nums;
-}
-.qa-entry-title {display: grid; gap: 2px; line-height: 1.45}
-.qa-entry-title strong {font-weight: 700}
-.qa-version {color: var(--sub); font-size: 12px}
-@media (max-width: 460px) {
-  .qa-log summary {grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px}
-  .qa-log summary time {grid-column: 1; grid-row: 1}
-  .qa-entry-title {grid-column: 1; grid-row: 2}
-  .qa-log summary::after {grid-column: 2; grid-row: 1 / 3}
-}
+.qa-log summary::after {margin-left:auto}
 
 </style></head>
 <body id="top">
@@ -657,54 +639,26 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 <h3>문제 발견부터 출시 판단까지</h3>
 <p class="small qa-hint">기록을 날짜순으로 정리했습니다. 각 항목을 누르면 확인한 문제와 후속 조치를 볼 수 있습니다.</p>
 <div class="qa-log">
-<details>
-  <summary>
-    <time datetime="2025-03-18">2025.03.18</time>
-    <span class="qa-entry-title"><strong>레벨 난이도 재검수</strong></span>
-  </summary>
+<details data-date="2025-03-18"><summary><span>레벨 난이도 재검수</span></summary>
   <p>출시 테스트에서 팀의 난이도 기준에 맞지 않는 레벨을 확인했습니다. 출시 일정을 3월 20일로 미루고 레벨을 추가 수정한 뒤 유효성 검사표를 갱신했습니다. 출시 결과는 GitLab에 남겼습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2025-05-15">2025.05.15</time>
-    <span class="qa-entry-title"><strong>로그 검증과 재출시</strong><small class="qa-version">버전 25.0515.02</small></span>
-  </summary>
+<details data-date="2025-05-15"><summary><span>로그 검증과 재출시</span></summary>
   <p>실패가 얼마나 아슬아슬했는지 기록하는 지표(Narrowness)의 계산식이 바뀌면서, 수정된 값이 기록되는지 추가 출시 테스트를 진행했습니다. 커스텀 로그 변경이 재출시 버전에 반영됐습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2025-06-24">2025.06.24</time>
-    <span class="qa-entry-title"><strong>신규·수정 레벨 유효성 검사</strong></span>
-  </summary>
+<details data-date="2025-06-24"><summary><span>신규·수정 레벨 유효성 검사</span></summary>
   <p>신규 레벨 100개와 수정 레벨 31개를 포함해 배포 대상의 유효성 검사 시트를 정리했습니다. 신규 레벨은 제작 이후 빌드를 요청해 플레이하고, 검수에서 발견한 문제를 다시 수정했습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2025-10-21">2025.10.21</time>
-    <span class="qa-entry-title"><strong>사내 FunQA 피드백 반영</strong></span>
-  </summary>
+<details data-date="2025-10-21"><summary><span>사내 FunQA 피드백 반영</span></summary>
   <p>스페이스 레이스의 더미 경쟁자와 보상 흐름, 데일리 룰렛 확률, 시즈널 이벤트 연출 피드백을 기획에 반영했습니다. 룰렛에서 같은 보상이 네 번 연속 나왔던 사례는 직전 보상 재등장 확률을 0%로 조정해 수정했습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2025-11-12">2025.11.12</time>
-    <span class="qa-entry-title"><strong>데이터 선택 팝업 검수</strong><small class="qa-version">버전 25.1112.00</small></span>
-  </summary>
+<details data-date="2025-11-12"><summary><span>데이터 선택 팝업 검수</span></summary>
   <p>로컬 데이터를 선택했을 때 확인 팝업에 ‘서버’로 표시되는 문제를 검수했습니다. 수정 항목은 GitLab #1520으로 남아 있습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2026-04-30">2026.04.30</time>
-    <span class="qa-entry-title"><strong>이벤트·보상·화면 입력 검수</strong><small class="qa-version">버전 2609.0.0</small></span>
-  </summary>
+<details data-date="2026-04-30"><summary><span>이벤트·보상·화면 입력 검수</span></summary>
   <p>피기뱅크 적립 연출 누락, 미스터리 케이븐 시작 시점, 이름 입력 키보드가 팝업을 가리는 문제를 포함해 해당 버전의 체크리스트에 10여 건이 기록됐습니다.</p>
 </details>
-<details>
-  <summary>
-    <time datetime="2026-04-30">2026.04.30</time>
-    <span class="qa-entry-title"><strong>스토어 결제 심사 반려 대응</strong></span>
-  </summary>
-  <p>4월 30일에 설치 경로별 인앱 결제 동작을 검증했습니다. Fire HD 8에서 결제 완료 영상과 기기 정보를 확보해 재심사를 요청했습니다. 해당 빌드는 재심사에서 승인됐습니다.</p>
+<details data-date="2026-04-30"><summary><span>스토어 결제 심사 반려 대응</span></summary>
+  <p>설치 경로별로 인앱 결제 동작을 비교했습니다. Fire HD 8에서 결제 완료 영상과 기기 정보를 확보해 재심사를 요청했습니다. 해당 빌드는 재심사에서 승인됐습니다.</p>
 </details>
 </div>
 
