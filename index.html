@@ -439,6 +439,47 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 #contents-page {padding-block:54px 62px}
 #contents-page h2 {line-height:1.12}
 @media(max-width:460px){#contents-page {padding-block:34px 44px}}
+/* Shared interaction states for portfolio controls. */
+:root {
+  --control-idle:#f7f7f7;
+  --control-hover:#fbf6e7;
+  --control-selected:#fff1bd;
+  --control-pressed:#ffe7a0;
+}
+#case-index a,.back,.tabs button,.action,.hero-cta,.dialog-close,
+.bm-button,.bm-piece,.bm-controls select,.qa-log summary,.pass-extra summary {
+  background:var(--control-idle);color:var(--fg);border:0;border-radius:8px;
+  box-shadow:none;text-decoration:none;transform:none;
+  transition:background-color .15s ease;
+}
+.hero-cta,.bm-primary {background:var(--yellow)}
+#case-index a span[aria-hidden] {background:transparent;box-shadow:none;transform:none}
+.qa-log details,.qa-log details[open],.panel,.qa-scale>div,.zoom,.bm-board,.reward {box-shadow:none}
+.qa-log details,.qa-log details[open] {border:1px solid var(--line);padding:0;background:#fff}
+.qa-log details p {padding:10px 15px}
+.qa-log summary,.pass-extra summary {padding:10px 14px}
+.zoom,.bm-cell.filled,.bm-cell.preview {box-shadow:none}
+.bm-cell.filled {background:#ffdc54}
+.bm-cell.preview {background:var(--control-selected);outline:1px dashed #907200;outline-offset:-1px}
+@keyframes bm-clear {from{background:var(--control-pressed)}}
+#case-index a:is(:hover,:focus-visible),.back:is(:hover,:focus-visible),
+.tabs button:is(:hover,:focus-visible),.action:is(:hover,:focus-visible),
+.hero-cta:is(:hover,:focus-visible),.dialog-close:is(:hover,:focus-visible),
+.bm-button:is(:hover,:focus-visible),.bm-piece:is(:hover,:focus-visible),
+.bm-controls select:is(:hover,:focus-visible),summary:is(:hover,:focus-visible) {background:var(--control-hover)}
+#case-index a:is(:hover,:focus-visible,:active) span[aria-hidden] {background:transparent;transform:none}
+.tabs button[aria-pressed=true],.bm-piece[aria-pressed=true],details[open]>summary {
+  background:var(--control-selected);color:var(--fg);box-shadow:none;
+}
+#case-index a:active,.back:active,.tabs button:active,.action:active,.hero-cta:active,
+.dialog-close:active,.bm-button:active,.bm-piece:active,.bm-controls select:active,
+.qa-log summary:active,.pass-extra summary:active {
+  background:var(--control-pressed);color:var(--fg);box-shadow:none;transform:none;
+}
+@media(prefers-reduced-motion:reduce){
+  #case-index a,.back,.tabs button,.action,.hero-cta,.dialog-close,.bm-button,.bm-piece,
+  .bm-controls select,.qa-log summary,.pass-extra summary {transition:none}
+}
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
