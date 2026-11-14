@@ -364,45 +364,44 @@ nav a {background:var(--bg)}
 .career-games dt{font-weight:700;color:var(--accent);font-size:15px}
 .career-games dd{margin:5px 0 0;font-size:16px;line-height:1.45}
 @media(max-width:680px){#career{padding-block:38px 40px}.career-games{grid-template-columns:1fr}.career-games>div+div{border-inline-start:0;border-block-start:1px solid var(--line)}}
+/* Application palette */
 :root {
-  --bg:#f4f4f2; --fg:#202020; --sub:#55544e; --line:#d9d7cf;
-  --light:#fff; --shade:#dbd9d1; --accent:#735700; --yellow:#ffcd00;
-  --tint:#fff1b5; --inset:inset 3px 4px 8px #dfd8be,inset -3px -4px 8px #fffdf1;
+  --bg:#f7f7f7; --fg:#202124; --sub:#55565a; --line:#e2e2e2;
+  --light:#fff; --shade:#e6e6e6; --accent:#252525;
+  --yellow:#ffcd00; --tint:#fff7db; --inset:inset 2px 2px 5px #eadfbd;
+  --raise:3px 4px 9px #0000000c,-3px -3px 8px #fff;
 }
-.top {background:#fff}
-main {background:linear-gradient(#fff 0 550px,var(--bg) 860px)}
-.hero h1 .cover-accent {color:var(--fg);position:relative;isolation:isolate}
-.cover-accent::after {content:"";position:absolute;z-index:-1;inset:auto -2px 1% -2px;height:.23em;background:var(--yellow);border-radius:2px}
-.hero .cover-text .chapter,.case .chapter,#release .chapter,#release .qa-flow li::before,#store .chapter,#block .chapter {color:var(--accent)}
+body,main,.top {background:#fff}
+.hero h1 .cover-accent {color:var(--fg)}
 .pf-progress {background:var(--yellow)}
-nav a,.back,.panel,.qa-log details,.tabs button,.dialog-close {background:var(--bg)}
-nav a:hover,.back:hover,.tabs button:hover {background:#eeece4;color:var(--fg)}
+.hero .cover-text .chapter,.case .chapter,#release .chapter,#release .qa-flow li::before,#store .chapter,#block .chapter {color:var(--sub)}
+nav a,.back,.panel,.qa-log details,.tabs button,.dialog-close,.bm-button,.bm-piece,.bm-controls select {background:var(--bg)}
+nav a {color:var(--fg)}
+nav a span[aria-hidden] {color:#555}
+nav a:hover,.back:hover,.tabs button:hover {background:#eee;color:var(--fg)}
 nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[aria-pressed=true],.bm-button:active {
-  background:var(--tint);color:var(--fg);box-shadow:var(--inset);
+  background:var(--tint);color:#694d00;box-shadow:var(--inset);
 }
-.back {color:var(--fg)}
-.qa-scale>div,.qa-scale>div:nth-child(2),.qa-scale>div:nth-child(3) {background:#f8f7f2}
-.qa-scale dt,.qa-scale>div:nth-child(2) dt,.qa-scale>div:nth-child(3) dt,.qa-log details[open] summary::after,.metrics td {color:var(--accent)}
-.action,.bm-primary {background:var(--yellow);color:#1b190e;box-shadow:var(--raise)}
-.action:hover,.action:active,.bm-primary:hover {background:#f4c300;color:#1b190e}
-.action:active {box-shadow:var(--inset)}
-.reward.lit,.highlight {background:#ffefac;color:#544000}
-.fill {background:#b38800}
-.fill.alt {background:#939086}
-.card {background:#eeece4}
-.track,#bm-meter,#bm-meter::-webkit-progress-bar {background:#e3dfd2}
-#bm-meter::-webkit-progress-value {background:#a77e00}
-#bm-meter::-moz-progress-bar {background:#a77e00}
-.bm {--bm-block:#ffcd00;--bm-deep:#735700}
-.bm-board {background:#e8e5da}
-.bm-cell {background:#faf9f3}
-.bm-cell.filled {background:linear-gradient(145deg,#ffe269,#f2bf00);box-shadow:inset 1px 1px 2px #fff6bf,inset -1px -1px 2px #9b740044}
-.bm-cell.preview {background:#ffeaa1;box-shadow:inset 0 0 0 2px #947000}
-.bm-glyph .solid {background:#ab7d00}
+.qa-scale>div,.qa-scale>div:nth-child(2),.qa-scale>div:nth-child(3) {background:var(--bg)}
+.qa-scale dt,.qa-scale>div:nth-child(2) dt,.qa-scale>div:nth-child(3) dt,.qa-log details[open] summary::after,.metrics td {color:var(--fg)}
+.hero-cta,.action,.bm-primary {background:var(--yellow);color:#111;border:0;border-radius:4px;box-shadow:none;font-weight:700}
+.hero-cta {display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:43px;padding:7px 20px;margin-top:18px;text-decoration:none}
+.hero-cta:hover,.action:hover,.bm-primary:hover {background:#f5c400;color:#111}
+.reward.lit,.highlight {background:var(--tint);color:#654b00}
+.fill {background:#d3a400}
+.fill.alt {background:#9b9b9b}
+.card,.track,#bm-meter {background:#ededed}
+.bm {--bm-deep:#484848}
+#bm-meter::-webkit-progress-bar {background:#ededed}
+#bm-meter::-webkit-progress-value {background:#d3a400}
+#bm-meter::-moz-progress-bar {background:#d3a400}
+.bm-board {background:#ededed}
+.bm-cell {background:#fafafa}
+.bm-cell.filled {background:#ffdc54;box-shadow:inset 1px 1px 2px #fff4b9,inset -1px -1px 2px #9b740033}
+.bm-cell.preview {background:#fff1b4;box-shadow:inset 0 0 0 2px #967200}
+.bm-glyph .solid {background:#9b7400}
 @keyframes bm-clear {from{background:#ffcd00;box-shadow:inset 0 0 0 3px #fff1a4}}
 :focus-visible {outline-color:#806100}
-@media(max-width:680px){main{background:linear-gradient(#fff 0 580px,var(--bg) 820px)}}
-
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
@@ -413,7 +412,7 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
   <div class="cover-text"><p class="chapter">카카오게임즈 게임 운영 체험형 인턴 지원</p>
   <h1>게임 운영<br><span class="cover-accent">포트폴리오</span></h1>
   <p class="lead">BrickOut의 라이브 콘텐츠를 기획하고, 빌드 일정과 출시 검수를 맡았습니다. 업데이트 뒤에는 플레이 로그와 지표로 결과를 확인했습니다.</p>
-  <p class="meta">퍼즐원스튜디오 · BrickOut · 캐주얼 퍼즐 · 2024.12–2026.05</p></div>
+  <p class="meta">퍼즐원스튜디오 · BrickOut · 캐주얼 퍼즐 · 2024.12–2026.05</p><a class="hero-cta" href="#release">출시·QA 보기 <span aria-hidden="true">→</span></a></div>
   <nav id="case-index" aria-label="사례 목차"><p class="index-title">목차</p><a href="#career">경력 요약<span aria-hidden="true">→</span></a><a href="#release">출시·QA<span aria-hidden="true">→</span></a><a href="#pass">프리미엄 패스<span aria-hidden="true">→</span></a><a href="#crown">Crown Rush<span aria-hidden="true">→</span></a><a href="#clear">클리어팝업<span aria-hidden="true">→</span></a><a href="#hard">하드레벨 UI<span aria-hidden="true">→</span></a><a href="#daily">데일리 퀘스트<span aria-hidden="true">→</span></a><a href="#booster">시간제 부스터<span aria-hidden="true">→</span></a><a href="#block-demo-panel">Block Mania 체험<span aria-hidden="true">→</span></a><a href="#store">스토어 심사 대응<span aria-hidden="true">→</span></a></nav>
 </div>
 <section class="case career" id="career" aria-labelledby="career-title">
