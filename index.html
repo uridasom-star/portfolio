@@ -423,9 +423,11 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
   font-size:19px;
   transition:transform .15s ease,background-color .15s ease;
 }
-#case-index a:is(:hover,:focus-visible) {background:#fff7db;text-decoration:underline;text-underline-offset:3px}
-#case-index a:is(:hover,:focus-visible) span[aria-hidden] {background:#ffcd00;transform:translateX(2px)}
-#case-index a:active {transform:translateY(1px);box-shadow:var(--inset);background:#fff1b5}
+#case-index a:is(:link,:visited,:hover,:focus-visible,:active) {text-decoration:none}
+#case-index a:is(:hover,:focus-visible) {background:#fbf6e7}
+#case-index a:is(:hover,:focus-visible) span[aria-hidden] {background:#fff1bd}
+#case-index a:active {background:#f5efdd;box-shadow:0 1px 3px #00000012}
+#case-index a:active span[aria-hidden] {background:#ffe7a0}
 @media(max-width:420px){#case-index a{font-size:14px;padding-inline:9px;gap:5px}#case-index a span[aria-hidden]{flex-basis:25px;height:25px;font-size:16px}}
 @media(prefers-reduced-motion:reduce){#case-index a,#case-index a span[aria-hidden]{transition:none}}
 </style></head>
