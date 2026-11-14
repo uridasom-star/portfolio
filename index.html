@@ -542,6 +542,46 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
   .case-arrival::after {animation: none}
 }
 
+
+/* Give the FunQA example its own space below the update metrics. */
+.roulette-followup {
+  margin-top: 32px;
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+.roulette-followup h3 + .small {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+.roulette-followup .tabs {
+  gap: 10px;
+  margin: 22px 0 14px;
+}
+.roulette-followup .mode, .roulette-followup .action {
+  min-height: 44px;
+  padding-inline: 16px;
+}
+.roulette-followup .reward-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.roulette-followup .reward {
+  padding: 10px 4px;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+  background: var(--control-idle);
+}
+.roulette-followup .reward span {display: inline-block; margin-top: 4px}
+.roulette-followup .reward.lit {background: var(--tint)}
+.roulette-followup .sim-status {min-height: 0}
+.roulette-followup .action {margin-top: 16px}
+@media (max-width: 460px) {
+  .roulette-followup .reward-grid {grid-template-columns: repeat(2, minmax(0, 1fr))}
+}
+
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
