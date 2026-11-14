@@ -364,6 +364,45 @@ nav a {background:var(--bg)}
 .career-games dt{font-weight:700;color:var(--accent);font-size:15px}
 .career-games dd{margin:5px 0 0;font-size:16px;line-height:1.45}
 @media(max-width:680px){#career{padding-block:38px 40px}.career-games{grid-template-columns:1fr}.career-games>div+div{border-inline-start:0;border-block-start:1px solid var(--line)}}
+:root {
+  --bg:#f4f4f2; --fg:#202020; --sub:#55544e; --line:#d9d7cf;
+  --light:#fff; --shade:#dbd9d1; --accent:#735700; --yellow:#ffcd00;
+  --tint:#fff1b5; --inset:inset 3px 4px 8px #dfd8be,inset -3px -4px 8px #fffdf1;
+}
+.top {background:#fff}
+main {background:linear-gradient(#fff 0 550px,var(--bg) 860px)}
+.hero h1 .cover-accent {color:var(--fg);position:relative;isolation:isolate}
+.cover-accent::after {content:"";position:absolute;z-index:-1;inset:auto -2px 1% -2px;height:.23em;background:var(--yellow);border-radius:2px}
+.hero .cover-text .chapter,.case .chapter,#release .chapter,#release .qa-flow li::before,#store .chapter,#block .chapter {color:var(--accent)}
+.pf-progress {background:var(--yellow)}
+nav a,.back,.panel,.qa-log details,.tabs button,.dialog-close {background:var(--bg)}
+nav a:hover,.back:hover,.tabs button:hover {background:#eeece4;color:var(--fg)}
+nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[aria-pressed=true],.bm-button:active {
+  background:var(--tint);color:var(--fg);box-shadow:var(--inset);
+}
+.back {color:var(--fg)}
+.qa-scale>div,.qa-scale>div:nth-child(2),.qa-scale>div:nth-child(3) {background:#f8f7f2}
+.qa-scale dt,.qa-scale>div:nth-child(2) dt,.qa-scale>div:nth-child(3) dt,.qa-log details[open] summary::after,.metrics td {color:var(--accent)}
+.action,.bm-primary {background:var(--yellow);color:#1b190e;box-shadow:var(--raise)}
+.action:hover,.action:active,.bm-primary:hover {background:#f4c300;color:#1b190e}
+.action:active {box-shadow:var(--inset)}
+.reward.lit,.highlight {background:#ffefac;color:#544000}
+.fill {background:#b38800}
+.fill.alt {background:#939086}
+.card {background:#eeece4}
+.track,#bm-meter,#bm-meter::-webkit-progress-bar {background:#e3dfd2}
+#bm-meter::-webkit-progress-value {background:#a77e00}
+#bm-meter::-moz-progress-bar {background:#a77e00}
+.bm {--bm-block:#ffcd00;--bm-deep:#735700}
+.bm-board {background:#e8e5da}
+.bm-cell {background:#faf9f3}
+.bm-cell.filled {background:linear-gradient(145deg,#ffe269,#f2bf00);box-shadow:inset 1px 1px 2px #fff6bf,inset -1px -1px 2px #9b740044}
+.bm-cell.preview {background:#ffeaa1;box-shadow:inset 0 0 0 2px #947000}
+.bm-glyph .solid {background:#ab7d00}
+@keyframes bm-clear {from{background:#ffcd00;box-shadow:inset 0 0 0 3px #fff1a4}}
+:focus-visible {outline-color:#806100}
+@media(max-width:680px){main{background:linear-gradient(#fff 0 580px,var(--bg) 820px)}}
+
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
