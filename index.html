@@ -340,7 +340,6 @@ nav a {background:var(--bg)}
 .bm-board{width:min(100%,410px);aspect-ratio:1;margin:16px auto;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));grid-template-rows:repeat(var(--n),minmax(0,1fr));gap:4px;padding:8px;background:#dbe7f3;border-radius:12px;box-shadow:var(--inset)}
 .bm-cell{border:0;border-radius:5px;padding:0;background:#edf4fb;min-width:0;min-height:0}
 .bm-cell.filled{background:linear-gradient(145deg,#81ddca,#4db7af);box-shadow:inset 1px 1px 2px #bcf2e590,inset -1px -1px 2px #197b753d}
-.bm-cell.preview{background:#b0dedc;box-shadow:inset 0 0 0 2px #147875}
 .bm-cell.cleared{animation:bm-clear .35s ease-out}
 @keyframes bm-clear{from{background:#53bfb1;box-shadow:inset 0 0 0 3px #b5f4e3}}
 .bm-tray{display:flex;justify-content:center;gap:12px}
@@ -396,7 +395,6 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 .bm-board {background:#ededed}
 .bm-cell {background:#fafafa}
 .bm-cell.filled {background:#ffdc54;box-shadow:inset 1px 1px 2px #fff4b9,inset -1px -1px 2px #9b740033}
-.bm-cell.preview {background:#fff1b4;box-shadow:inset 0 0 0 2px #967200}
 .bm-glyph .solid {background:#9b7400}
 @keyframes bm-clear {from{background:#ffcd00;box-shadow:inset 0 0 0 3px #fff1a4}}
 :focus-visible {outline-color:#806100}
@@ -456,9 +454,8 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 .qa-log details,.qa-log details[open] {border:1px solid var(--line);padding:0;background:#fff}
 .qa-log details p {padding:10px 15px}
 .qa-log summary {padding:10px 14px}
-.zoom,.bm-cell.filled,.bm-cell.preview {box-shadow:none}
+.zoom,.bm-cell.filled {box-shadow:none}
 .bm-cell.filled {background:#ffdc54}
-.bm-cell.preview {background:var(--control-selected);outline:1px dashed #907200;outline-offset:-1px}
 @keyframes bm-clear {from{background:var(--control-pressed)}}
 #case-index a:is(:hover,:focus-visible),.back:is(:hover,:focus-visible),
 .tabs button:is(:hover,:focus-visible),.action:is(:hover,:focus-visible),
@@ -665,7 +662,7 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 </div></div></section>
 <section class="case" id="pass"><div class="wrap case-grid">
 <div><a class="back" href="#contents-page">← 목차</a><p class="chapter">시즌 보상 운영</p><h2>프리미엄 패스</h2><p class="meta">BrickOut · 시즌 90과 시즌 96 비교</p>
-<p class="intro">최종 티어 도달률이 낮아, 패스를 구매한 유저가 마지막 티어까지 진행하도록 보상 구조를 개선하는 데 집중했습니다.</p>
+<p class="intro">구매 직후 보상을 체감하고 마지막 티어까지 진행할 이유를 만들고자 했습니다.</p>
 <div class="story"><h3>제가 맡은 일</h3><p>로얄매치 등 경쟁작의 보상 구성을 참고해 보상 테이블과 아트워크, 획득 연출을 개편하고 시간제 부스터를 추가했습니다. 구매 직후 받는 0티어 보상을 신설하고, 시즌별 지표를 다음 시즌 설계에 반영했습니다.</p></div>
 <p class="result">시즌 90에서 시즌 96까지 구매 전환율이 <strong class="metric-change">51.05% → 61.39%</strong>로 올랐습니다.</p>
 <p class="story">같은 시즌에 여러 변경이 함께 적용돼 개별 변경의 효과는 분리해서 측정하기 어려웠습니다.</p>
@@ -689,7 +686,7 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 <div class="bars" aria-label="1인당 이어하기 사용 비교">
 <div><div class="bar-label"><span>크라운 러쉬</span><b>5.097회</b></div><div class="track"><div class="fill" style="width:84.95%"></div></div></div>
 <div><div class="bar-label"><span>메달 러쉬</span><b>3.519회</b></div><div class="track"><div class="fill alt" style="width:58.65%"></div></div></div>
-</div><p class="small">기존 유저 중 보고서에서 C타입으로 분류한 집단의 1인당 사용 횟수입니다.</p>
+</div><p class="small">최고 보상 단계에 도달한 뒤 실패한 기존 유저의 1인당 이어하기 사용 횟수입니다.</p>
 <p class="measure">2차 기존 유저 비교에서 보상형 광고 ARPDAU +29%, 보상형 광고 ARPPU +32%, 스토어 구매 유저 비율 +0.17%p를 관찰했습니다. 분석한 코호트에서 D1·D3·D5 리텐션도 소폭 높았습니다.</p></div>
 <div class="view" id="ab-screen">
   <div class="gallery two pass-pair rush-pair">
@@ -1002,17 +999,6 @@ scheduleProgress();
       ?? ranked.find(piece => !others.includes(piece)) ?? ranked[0] ?? null;
   }
 
-  function clearPreview() {
-    cells.forEach(cell => cell.classList.remove('preview'));
-  }
-
-  function showPreview(pos) {
-    clearPreview();
-    if (complete) return;
-    const indices = placement(slots[selected], Math.floor(pos/size), pos%size);
-    indices?.forEach(i => cells[i].classList.add('preview'));
-  }
-
   function render(cleared = []) {
     byId('bm-size').textContent = size + '×' + size + ' 보드';
     byId('bm-score').textContent = score + '점';
@@ -1137,12 +1123,6 @@ scheduleProgress();
     focusCell(pos);
     place(pos);
   });
-  boardElement.addEventListener('pointerover', event => {
-    if (event.target.matches('.bm-cell')) showPreview(Number(event.target.dataset.position));
-  });
-  boardElement.addEventListener('pointerleave', clearPreview);
-  boardElement.addEventListener('focusin', event => showPreview(Number(event.target.dataset.position)));
-  boardElement.addEventListener('focusout', clearPreview);
   boardElement.addEventListener('keydown', event => {
     if (!event.target.matches('.bm-cell')) return;
     const moves = {ArrowLeft:-1,ArrowRight:1,ArrowUp:-size,ArrowDown:size};
