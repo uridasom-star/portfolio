@@ -402,6 +402,32 @@ nav a:active,.tabs button[aria-pressed=true],.qa-log details[open],.bm-piece[ari
 .bm-glyph .solid {background:#9b7400}
 @keyframes bm-clear {from{background:#ffcd00;box-shadow:inset 0 0 0 3px #fff1a4}}
 :focus-visible {outline-color:#806100}
+
+/* Make the whole contents tile read as a link. */
+#case-index a {
+  min-height:54px;
+  padding:8px 11px 8px 14px;
+  font-size:15px;
+  cursor:pointer;
+  transition:background-color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+#case-index a span[aria-hidden] {
+  flex:0 0 30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#242424;
+  background:#fff;
+  box-shadow:0 1px 3px #00000018;
+  font-size:19px;
+  transition:transform .15s ease,background-color .15s ease;
+}
+#case-index a:is(:hover,:focus-visible) {background:#fff7db;text-decoration:underline;text-underline-offset:3px}
+#case-index a:is(:hover,:focus-visible) span[aria-hidden] {background:#ffcd00;transform:translateX(2px)}
+#case-index a:active {transform:translateY(1px);box-shadow:var(--inset);background:#fff1b5}
+@media(max-width:420px){#case-index a{font-size:14px;padding-inline:9px;gap:5px}#case-index a span[aria-hidden]{flex-basis:25px;height:25px;font-size:16px}}
+@media(prefers-reduced-motion:reduce){#case-index a,#case-index a span[aria-hidden]{transition:none}}
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
