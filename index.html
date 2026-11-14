@@ -356,6 +356,14 @@ nav a {background:var(--bg)}
 @media(max-width:480px){.bm-heading h3{font-size:19px}.bm-board{gap:3px;padding:6px}.bm-controls{gap:8px}}
 @media(prefers-reduced-motion:reduce){.bm-cell.cleared{animation:none}}
 
+#career{padding-block:56px 60px}
+.career-intro{margin-top:14px}
+.career-games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:23px 0 0;border-block:1px solid var(--line)}
+.career-games>div{padding:14px 16px}
+.career-games>div+div{border-inline-start:1px solid var(--line)}
+.career-games dt{font-weight:700;color:var(--accent);font-size:15px}
+.career-games dd{margin:5px 0 0;font-size:16px;line-height:1.45}
+@media(max-width:680px){#career{padding-block:38px 40px}.career-games{grid-template-columns:1fr}.career-games>div+div{border-inline-start:0;border-block-start:1px solid var(--line)}}
 </style></head>
 <body id="top">
 <a class="skip" href="#release">본문으로 이동</a>
@@ -367,8 +375,19 @@ nav a {background:var(--bg)}
   <h1>게임 운영<br><span class="cover-accent">포트폴리오</span></h1>
   <p class="lead">BrickOut의 라이브 콘텐츠를 기획하고, 빌드 일정과 출시 검수를 맡았습니다. 업데이트 뒤에는 플레이 로그와 지표로 결과를 확인했습니다.</p>
   <p class="meta">퍼즐원스튜디오 · BrickOut · 캐주얼 퍼즐 · 2024.12–2026.05</p></div>
-  <nav id="case-index" aria-label="사례 목차"><p class="index-title">목차</p><a href="#release">출시·QA<span aria-hidden="true">→</span></a><a href="#pass">프리미엄 패스<span aria-hidden="true">→</span></a><a href="#crown">Crown Rush<span aria-hidden="true">→</span></a><a href="#clear">클리어팝업<span aria-hidden="true">→</span></a><a href="#hard">하드레벨 UI<span aria-hidden="true">→</span></a><a href="#daily">데일리 퀘스트<span aria-hidden="true">→</span></a><a href="#booster">시간제 부스터<span aria-hidden="true">→</span></a><a href="#block-demo-panel">Block Mania 체험<span aria-hidden="true">→</span></a><a href="#store">스토어 심사 대응<span aria-hidden="true">→</span></a></nav>
+  <nav id="case-index" aria-label="사례 목차"><p class="index-title">목차</p><a href="#career">경력 요약<span aria-hidden="true">→</span></a><a href="#release">출시·QA<span aria-hidden="true">→</span></a><a href="#pass">프리미엄 패스<span aria-hidden="true">→</span></a><a href="#crown">Crown Rush<span aria-hidden="true">→</span></a><a href="#clear">클리어팝업<span aria-hidden="true">→</span></a><a href="#hard">하드레벨 UI<span aria-hidden="true">→</span></a><a href="#daily">데일리 퀘스트<span aria-hidden="true">→</span></a><a href="#booster">시간제 부스터<span aria-hidden="true">→</span></a><a href="#block-demo-panel">Block Mania 체험<span aria-hidden="true">→</span></a><a href="#store">스토어 심사 대응<span aria-hidden="true">→</span></a></nav>
 </div>
+<section class="case career" id="career" aria-labelledby="career-title">
+<div class="wrap reading">
+<p class="chapter">퍼즐원스튜디오 · 2022.12–2026.05</p>
+<h2 id="career-title">경력 요약</h2>
+<p class="career-intro">3년 5개월간 게임 기획자, Product Owner, 레벨 디자이너로 글로벌 모바일 게임 6종에 참여했습니다. BrickOut에서는 라이브 콘텐츠 기획과 업데이트 일정, 출시 검수를 맡았습니다.</p>
+<dl class="career-games">
+<div><dt>라이브 운영 · 3종</dt><dd>BrickOut, BunnyPop, WordCookies</dd></div>
+<div><dt>글로벌 출시 참여 · 1종</dt><dd>Lollipop Sweet Heroes</dd></div>
+<div><dt>신작 1.0.0 기획 · 2종</dt><dd>Mystery Castle, Connect Pipe</dd></div>
+</dl>
+</div></section>
 <section class="case" id="release"><div class="wrap reading">
 <a class="back" href="#case-index">← 목차</a>
 <p class="chapter">BrickOut · 게임 운영 지원</p>
